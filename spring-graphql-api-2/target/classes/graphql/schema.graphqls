@@ -1,0 +1,37 @@
+type Query{
+    student(id: Int) : StudentResponse
+}
+
+type StudentResponse{
+    id: Int
+    firstname: String
+    lastName: String
+    email: String
+    street: String
+    city: String
+    subject: [SubjectResponse]
+}
+
+type SubjectResponse{
+    id: Int
+    subjectName: String
+    marksObtained: Float
+}
+
+type Mutation {
+    createStudent(createStudentRequest: CreateStudentResponse): StudentResponse
+}
+
+input CreateStudentResponse{
+    firstName: String
+    lastName: String
+    email: String
+    street: String
+    city: String
+    subjects: [CreateSubjectRequest]
+}
+
+input CreateSubjectRequest{
+    subjectName: String
+    marksObtained: Float
+}
